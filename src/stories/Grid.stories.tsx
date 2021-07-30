@@ -1,15 +1,15 @@
-import React from "react";
-import { ComponentMeta, Story } from "@storybook/react";
+import React from 'react'
+import { ComponentMeta, Story } from '@storybook/react'
 
-import Grid from "../layouts/Grid";
+import Grid from '../layouts/Grid'
 
 export default {
-  title: "Layouts/Grid",
+  title: 'Layouts/Grid',
   component: Grid,
   argTypes: {
     amount: {
       type: {
-        name: "number",
+        name: 'number',
         required: true,
       },
     },
@@ -17,7 +17,7 @@ export default {
   args: {
     amount: 20,
   },
-} as ComponentMeta<typeof Grid>;
+} as ComponentMeta<typeof Grid>
 
 type Args = React.ComponentProps<typeof Grid> & {
   amount: number
@@ -31,17 +31,17 @@ const Template: Story<Args> = (args) => (
         <div
           key={i}
           style={{
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-            borderRadius: "0.25rem",
-            height: "80px",
-            width: "100%",
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            borderRadius: '0.25rem',
+            height: '80px',
+            width: '100%',
           }}
-        ></div>
+        />
       ))}
   </Grid>
-);
+)
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
   columns: 4,
-};
+}
