@@ -12,7 +12,14 @@ function Grid(props: Props) {
   return (
     <div className="grid">
       {React.Children.map(children, (child) => (
-        <div style={{ flexBasis: `${100 / columns}%` }}>{child}</div>
+        <div
+          className="item"
+          style={{
+            flexBasis: `${100 / columns}%`,
+          }}
+        >
+          {child}
+        </div>
       ))}
     </div>
   );
