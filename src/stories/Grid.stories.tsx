@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { ComponentMeta, Story } from "@storybook/react";
 
 import Grid from "../layouts/Grid";
 
@@ -7,11 +7,23 @@ export default {
   title: "Layouts/Grid",
   component: Grid,
   argTypes: {
-    amount: { control: "number", defaultValue: 20 },
+    amount: {
+      type: {
+        name: "number",
+        required: true,
+      },
+    },
+  },
+  args: {
+    amount: 20,
   },
 } as ComponentMeta<typeof Grid>;
 
-const Template: ComponentStory<typeof Grid> = (args) => (
+type Args = React.ComponentProps<typeof Grid> & {
+  amount: number
+}
+
+const Template: Story<Args> = (args) => (
   <Grid {...args}>
     {Array(args.amount)
       .fill(0)
