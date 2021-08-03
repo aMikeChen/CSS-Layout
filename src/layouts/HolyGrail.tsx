@@ -1,5 +1,19 @@
 import React from 'react'
-import './styles.scss'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  * {
+    box-sizing: border-box;
+  }
+`
+
+const Middle = styled.div`
+  flex-grow: 1;
+`
 
 type Props = {
   leftComponent: () => React.ReactNode
@@ -12,11 +26,11 @@ type Props = {
 function HolyGrail(props: Props) {
   const { leftComponent, leftWidth = '25%', rightComponent, rightWidth = '25%', children } = props
   return (
-    <div className="container">
+    <Container>
       <div style={{ width: leftWidth }}>{leftComponent()}</div>
-      <div className="middle">{children}</div>
+      <Middle>{children}</Middle>
       <div style={{ width: rightWidth }}>{rightComponent()}</div>
-    </div>
+    </Container>
   )
 }
 
